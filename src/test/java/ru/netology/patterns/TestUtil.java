@@ -38,12 +38,4 @@ public class TestUtil {
         return date.format(DateTimeFormatter.ofPattern(DATE_FORMAT));
     }
 
-    public static String getRepeatableKeySequence(Keys key, int count){
-        List<CharSequence> keysList = new ArrayList<>();
-        for (int i = 0; i < count; i++){
-            keysList.add(key);
-        }
-        return Keys.chord(keysList);
-    }
-
 }

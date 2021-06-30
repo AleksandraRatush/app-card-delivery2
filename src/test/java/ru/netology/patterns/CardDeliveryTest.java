@@ -84,8 +84,7 @@ public class CardDeliveryTest {
 
     private void setDate(LocalDate date) {
         $("[data-test-id='date'] span input").click();
-        $("[data-test-id='date'] span input").sendKeys(
-                TestUtil.getRepeatableKeySequence(Keys.BACK_SPACE, 9));
+        $("[data-test-id='date'] span input").doubleClick().sendKeys(Keys.BACK_SPACE);
         String dateString = TestUtil.format(date);
         $("[data-test-id='date'] span input").setValue(dateString);
         $("[data-test-id='date'] span").click();
