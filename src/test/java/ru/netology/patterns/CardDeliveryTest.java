@@ -1,6 +1,10 @@
 package ru.netology.patterns;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -17,8 +21,18 @@ public class CardDeliveryTest {
 
     private DataGenerator.CardDeliveryInfo cardDeliveryInfo;
 
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearAllDown(){
+        SelenideLogger.removeListener("allure");
+    }
+
     @BeforeEach
-    void setUpAll() {
+    void setUp() {
         cardDeliveryInfo = DataGenerator.generateCardDeliveryInfo("ru");
     }
 
